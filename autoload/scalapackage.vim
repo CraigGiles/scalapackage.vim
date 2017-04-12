@@ -1,3 +1,8 @@
+function! scalapackage#InsertPackageCmd()
+    let a:package = scalapackage#InsertPackageStatement(expand('%:p:r'), g:scala_package_flat_package)
+    return append(0, a:package)
+endfunction
+
 function! scalapackage#InsertPackageStatement(str, flat_package)
     let a:a = scalapackage#AbsolutePathToCodePath(a:str)
     let a:b = scalapackage#SlashToDot(a:a)
@@ -5,7 +10,7 @@ function! scalapackage#InsertPackageStatement(str, flat_package)
     let a:d = scalapackage#InsertPackageKeyword(a:c)
 
     if (a:flat_package == 1)
-        return a:d
+        return [a:d]
     else
         return scalapackage#FlatPackageToMultiplePackage(a:d)
 endfunction
@@ -40,9 +45,15 @@ endfunction
 function! scalapackage#FlatPackageToMultiplePackage(p)
     let a:removed_package = split(a:p)[1]
     let a:ary = split(a:removed_package, '\.')
-    let a:firsttwo = "package " .  a:ary[0] . "." . a:ary[1]
+    let a:firsttwo = a:ary[0] . "." . a:ary[1]
     let a:next = [a:firsttwo] + a:ary[2:]
-    let a:joined = join(a:next, "\npackage ")
+
+    let a:joined = []
+    for i in a:next
+        let a:joined = a:joined + ["package " . i]
+    endfor
+
+    " let a:joined = join(a:next, "\npackage ")
 
     return a:joined
 endfunction
