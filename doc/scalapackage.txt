@@ -17,7 +17,7 @@ This plugin is only available if 'compatible' is not set.
 INTRODUCTION                    *scalapackage-introduction* *scalapackage*
 
 This plugin was developed as a learning experience but filled a need for my
-workflow. The code can be found on its github repository 
+workflow. The code can be found on its github repository
 
 USAGE ............................................ *scalapackage-usage*
 
@@ -34,7 +34,7 @@ CONFIGURATION .................................... *scalapackage-configuration*
 
 There are two configuration options for `scalapackage`.
 
-    *g:scala_package_prefix*: Default = [ "main", "test", "it", "bt", "fun" ]
+    *g:scala_package_prefix* - Default: `[ "main", "test", "it", "bt", "fun" ]`
 
 g:scala_package_prefix is a list of directories which can contain scala files
 within the `src/<PREFIX>/scala` folder structure. Typical maven structures
@@ -42,7 +42,7 @@ will have a `src/main/scala` and `src/test/scala` but adding your own scopes
 for testing (`it` is a typical one) should work with this plugin as well as
 long as they're included in the `g:scala_package_prefix` list.
 
-    *g:scala_package_flat_package*: Default = 1
+    *g:scala_package_flat_package* - Default:` 1`
 
 `g:scala_package_flat_package` allows a user to insert a single package
 statement at the top of their buffer. Single package statements will look
