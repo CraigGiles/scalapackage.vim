@@ -23,7 +23,8 @@ endif
 
 function! s:InsertPackageCmd()
     let a:package = scalapackage#InsertPackageStatement(expand('%:p:r'), g:scala_package_flat_package)
-    append(0, [a:package])
+    echo a:package
+    append(1, [a:package])
 endfunction
 
 command! ScalaInsertPackage call s:InsertPackageCmd()
