@@ -21,4 +21,9 @@ if !exists('g:scala_package_flat_package')"
     let g:scala_package_flat_package = 1
 endif
 
-command! ScalaInsertPackage call scalapackage#InsertPackageStatement(expand('%:p:r'), g:scala_package_flat_package)
+function! s:InsertPackageCmd()
+    let a:package = scalapackage#InsertPackageStatement(expand('%:p:r'), g:scala_package_flat_package)
+    append(0, a:package)
+endfunction
+
+command! ScalaInsertPackage call s:InsertPackageCmd()
