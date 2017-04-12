@@ -13,9 +13,9 @@ if exists('g:loaded_scala_packages') || &cp || v:version < 700
 endif
 let g:loaded_scala_packages = 1
 
-if !exists('g:scala_package_prefix ')"
+if !exists('g:scala_package_prefix ')
     let g:scala_package_prefix = [ "main", "test", "it", "bt", "fun" ]
-endif"
+endif
 
 if !exists('g:scala_package_flat_package')"
     let g:scala_package_flat_package = 1
@@ -23,7 +23,7 @@ endif
 
 function! s:InsertPackageCmd()
     let a:package = scalapackage#InsertPackageStatement(expand('%:p:r'), g:scala_package_flat_package)
-    append(0, a:package)
+    append(0, [a:package])
 endfunction
 
 command! ScalaInsertPackage call s:InsertPackageCmd()
