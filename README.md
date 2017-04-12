@@ -1,0 +1,1 @@
+# scalapackage.vim
