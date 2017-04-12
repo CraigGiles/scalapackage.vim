@@ -1,8 +1,10 @@
+" Plugin Entry Point: ----- !! Side Effects!! {{{
 function! scalapackage#InsertPackageCmd()
     let a:package = scalapackage#InsertPackageStatement(expand('%:p:r'), g:scala_package_flat_package)
     return append(0, a:package)
 endfunction
-
+" }}}
+" {{{ Composing Function Helpers
 function! scalapackage#InsertPackageStatement(str, flat_package)
     let a:a = scalapackage#AbsolutePathToCodePath(a:str)
     let a:b = scalapackage#SlashToDot(a:a)
@@ -14,6 +16,9 @@ function! scalapackage#InsertPackageStatement(str, flat_package)
     else
         return scalapackage#FlatPackageToMultiplePackage(a:d)
 endfunction
+" }}}
+" {{{ Function Helpers
+
 
 function! scalapackage#AbsolutePathToCodePath(p)
   let a:scala_package_prefix = [ "main", "test", "it" ]
@@ -57,3 +62,6 @@ function! scalapackage#FlatPackageToMultiplePackage(p)
 
     return a:joined
 endfunction
+" }}}
+
+" vim:set sw=2 sts=2 foldmethod=marker:

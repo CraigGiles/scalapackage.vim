@@ -2,6 +2,7 @@ UTSuite [ScalaPackage] Insert Package In Scala Files
 
 source autoload/**
 
+"{{{ Unit Tests
 function! s:TestItConvertsAbsolutePathToCodePath()
   let s:before = "/Users/craig/Development/myproj/src/main/scala/com/example/myproj/HelloWorld"
   let s:after = scalapackage#AbsolutePathToCodePath(s:before)
@@ -33,7 +34,8 @@ function! s:TestItInsertsThePackageKeyword()
 
     AssertEquals(s:after, s:expected)
 endfunction
-
+"}}}
+"{{{ Functional Tests
 function! s:TestItConvertsCodePathToFlatPackage()
   let g:scala_package_flat_package = 1
   let s:before = "/Users/craig/Development/myproj/src/main/scala/com/example/myproj/hello/world/HelloWorld"
@@ -68,3 +70,6 @@ function! s:TestItAllowsForMultiplePackageDefinitions()
 
   AssertEquals(s:after, s:expected)
 endfunction
+"}}}
+
+" vim:set sw=2 sts=2 foldmethod=marker:
