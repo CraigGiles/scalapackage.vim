@@ -1,13 +1,31 @@
 # *scalapackage.txt*
 #### Plugin for inserting package statements in Scala files
 
-Author:  Craig Giles <http://www.gilesc.com>
-
 #### INTRODUCTION
 ---
 
 This plugin was developed as a learning experience but filled a need for my
 workflow. The code can be found on its github repository
+
+#### INSTALLATION
+---
+
+If you have Vundle, Pathogen, or VimPlug installed, simply add the following to your .vimrc:
+
+Vundle:
+
+    Plugin 'CraigGiles/scalapackage.vim'
+    :PluginInstall
+
+Pathogen:
+
+    cd ~/.vim/bundle && \
+    git clone https://github.com/CraigGiles/scalapackage.vim.git
+
+VimPlug
+
+    Plug 'CraigGiles/scalapackage.vim'
+    :PluginInstall
 
 #### USAGE
 ---
